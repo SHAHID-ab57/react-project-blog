@@ -7,6 +7,7 @@ import Sidebar from '../SideBarforHome/Sidebar'
 import { useNavigate } from 'react-router-dom'
 import Others from '../Others/Others'
 import DoctorAdv from '../DoctorAdv/DoctorAdv'
+import "./Home.css"
 
 
 const Home = () => {

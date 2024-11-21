@@ -1,0 +1,55 @@
+/* General container styling */
+.allblog-container {
+    padding: 20px 15px;
+  }
+  
+  /* Blog card design */
+  .blog-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .blog-card-img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .blog-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .blog-card-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .blog-card-meta {
+    font-size: 0.85rem;
+    color: grey;
+    margin-top: 10px;
+  }
+  
+  /* Pagination */
+  .pagination {
+    font-size: 1rem;
+  }
+  
+  .pagination-item {
+    cursor: pointer;
+  }
+  
+  .pagination-item.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

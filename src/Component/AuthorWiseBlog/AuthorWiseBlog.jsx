@@ -3,70 +3,77 @@ import { api_url, endpoints } from "../../Api/Api";
 import axios from "axios";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../SideBarforHome/Sidebar";
-import Home from "../Home/Home";
 import StarPrinting from "../CommentRating/StarPrinting";
+import "./AuthorWiseBlog.css";
 
 const AuthorWiseBlog = () => {
-  let {authName}=useParams()
-  let api_link = api_url + endpoints.blogdetails;
-  console.log(authName,"AuthName");
-  let [allblogs, setAllblogs] = useState([]);
+  const { authName } = useParams();
+  const api_link = api_url + endpoints.blogdetails;
+  const [allBlogs, setAllBlogs] = useState([]);
 
-  let getApi = () => {
+  const getApi = () => {
     axios
       .get(api_link)
       .then((res) => {
-        // console.log(res.data);
-        setAllblogs(res.data);
+        setAllBlogs(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   useEffect(() => {
     getApi();
   }, []);
 
-  let filterAuthorData = allblogs?.filter((value)=>value.authorName.toLowerCase()===authName.toLowerCase())
- console.log(filterAuthorData);
-  
+  const filterAuthorData = allBlogs?.filter(
+    (value) => value.authorName.toLowerCase() === authName.toLowerCase()
+  );
+
   return (
-    <>
-      <Container className="mt-0" >
-        {/* <Home/> */}
-        <Row>
-          {filterAuthorData?.map((value, index) => (
-            <Col key={index} md={3} className="m-5 mt-2 h-100">
-              <Card style={{ width: "25rem", border:"none", height:"100%"}}>
-                
-                <img
-                  src={value.imageBlog}
-                  alt=""
-                  className=" d-block  mt-1"
-                  
-                />
-                <Card.Body>
-                  <Card.Title>{value.header}</Card.Title>
-                  <Card.Text>{value.short_des}
-                    <p style={{fontSize:"14px", marginTop:"15px",color:"grey"}}>
-                     By : {value.authorName
-                      } <br />
-                      {value.time}
-                    </p>
-
-                    <StarPrinting blogids = {value.id}/>
-                  </Card.Text>
-
-                  <Button variant="primary" as={Link} to={`/detailspage/${value.id}`}>Details</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-        {/* <Sidebar/> */}
-      </Container>
-    </>
+    <Container className="author-blog-container">
+      <h2 className="text-center mb-4">
+        Blogs by <span className="author-name">{authName}</span>
+      </h2>
+      <Row className="gy-4">
+        {filterAuthorData?.map((value, index) => (
+          <Col key={index} md={6} lg={4}>
+            <Card className="author-blog-card h-100">
+              <Card.Img
+                variant="top"
+                src={value.imageBlog}
+                alt={value.header}
+                className="author-blog-img"
+              />
+              <Card.Body>
+                <Card.Title className="author-blog-title">
+                  {value.header}
+                </Card.Title>
+                <Card.Text className="author-blog-text">
+                  {value.short_des.slice(0, 150)}...
+                </Card.Text>
+                <p className="author-blog-meta">
+                  By: {value.authorName} <br />
+                  {value.time}
+                </p>
+                <StarPrinting blogids={value.id} />
+                <Button
+                  variant="primary"
+                  as={Link}
+                  to={`/detailspage/${value.id}`}
+                  className="mt-3"
+                >
+                  Details
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      {filterAuthorData?.length === 0 && (
+        <p className="text-center mt-5">No blogs found for this author.</p>
+      )}
+    </Container>
   );
 };
 

@@ -66,12 +66,7 @@ const Header = ({ isDarkMode, DarkButtonHandler }) => {
       >
         <Container>
           {/* <Navbar.Brand as={Link} to=""  ><span><img src="/asset/Designer2.png" className='d-block ' style={{width:"50px"}} alt="" /></span></Navbar.Brand> */}
-          <img
-            src="/asset/Designer2.png"
-            alt=""
-            className=""
-            style={{ height: "5%", width: "5%" }}
-          />
+          <img src="/asset/Designer2.png" alt="" className="shadowed-img" />
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

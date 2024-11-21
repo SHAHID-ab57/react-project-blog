@@ -1,0 +1,36 @@
+
+.custom-tabs {
+    margin-top: 20px;
+  }
+  
+
+  .content-col {
+    padding: 15px;
+    background: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .sidebar-col {
+    padding: 15px;
+    background: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  .gx-4 {
+    gap: 1.5rem;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .content-col,
+    .sidebar-col {
+      margin-bottom: 20px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+  

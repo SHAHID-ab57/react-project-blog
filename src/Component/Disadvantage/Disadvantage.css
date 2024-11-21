@@ -1,0 +1,51 @@
+.disadvantage-container {
+    padding: 20px;
+  }
+  
+  .disadvantage-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .disadvantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .disadvantage-card-img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .disadvantage-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .disadvantage-card-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .disadvantage-card-meta {
+    font-size: 0.85rem;
+    color: grey;
+    margin-top: 10px;
+  }
+  
+  .disadvantage-card button {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .disadvantage-card {
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+  

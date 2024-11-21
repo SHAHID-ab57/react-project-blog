@@ -4,3 +4,9 @@
 #headerText_color:hover{
     color: black;
 }
+.shadowed-img {
+    height: 5%;
+    width: 5%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    border-radius: 5px; 
+  }

@@ -56,7 +56,7 @@ const UserLogin = ({userlog,setUserlog,setShow}) => {
 let onSubmitHandler=(e)=>{
 e.preventDefault()
  let findlogDetails = loginDetails?.find((value)=>{
- return value.email===logindata?.email
+ return value.email===logindata?.email 
 })
 // console.log(findlogDetails);
 
